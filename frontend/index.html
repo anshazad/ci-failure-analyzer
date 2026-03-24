@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI Failure Analyzer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="logo">CI Failure Analyzer</span>
+      <span class="tag">fastapi/fastapi</span>
+    </div>
+    <div class="topbar-right">
+      <span class="live-dot"></span>
+      <span id="live-label">Live</span>
+      <button class="btn-poll" onclick="manualPoll()">Poll now</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="metrics" id="metrics">
+      <div class="metric">
+        <div class="metric-label">Total failures</div>
+        <div class="metric-value" id="m-total">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Diagnosed</div>
+        <div class="metric-value" id="m-diagnosed">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Automation rate</div>
+        <div class="metric-value" id="m-rate">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Pending</div>
+        <div class="metric-value" id="m-pending">—</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card" id="failures-card">
+        <div class="card-title">Recent failures</div>
+        <div id="failures-list"></div>
+      </div>
+
+      <div class="card" id="diagnosis-card">
+        <div class="card-title">AI diagnosis</div>
+        <div id="diagnosis-placeholder" class="placeholder">
+          Select a failure to diagnose
+        </div>
+        <div id="stream-box" class="stream-box" style="display:none"></div>
+        <div id="approval-box" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
